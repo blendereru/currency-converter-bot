@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyBot", "CurrencyBot\CurrencyBot.csproj", "{F647BCD7-373C-42DC-9B4D-A8242DAE407E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyBot.Example", "CurrencyBot.Example\CurrencyBot.Example.csproj", "{F647BCD7-373C-42DC-9B4D-A8242DAE407E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
