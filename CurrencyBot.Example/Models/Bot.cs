@@ -12,7 +12,7 @@ public class Bot
         {
             return client;
         }
-        client = new TelegramBotClient("7616666641:AAEkKxP0g5diKhkkHDiOyo2alqOl5DLNYBY");
+        client = new TelegramBotClient("your_telegram_token");
         return client;
     }
 }
