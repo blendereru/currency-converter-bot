@@ -1,6 +1,6 @@
 # CurrencyBot.Example
 
-[example bot](currency-converter-bot/resources/example_workflow.mp4)
+[example bot](./currency-converter-bot/resources/example_workflow.mp4)
 The project has a single controller which is responsible for receiving updates from telegram. The `post` action method
 is essential because telegram sends incoming updates as POST requests to the URL specified in `SetWebHookAsync()`:
 ```csharp
@@ -100,7 +100,7 @@ interaction with user(e.g. asking for phone number after asking his name and etc
 
 ## Overall workflow
 1. User sends `/register` command
-2. `Telegram` makes call to our web-site(check [appsettings](currency-converter-bot/CurrencyBot.Example/appsettings.json))
+2. `Telegram` makes call to our web-site(check [appsettings](./currency-converter-bot/CurrencyBot.Example/appsettings.json))
 3. The call is made to post action method in BotController
 4. BotController calls `GetUpdate()` of `UpdateDistributor`(which is singleton as we don't need `UpdateDistributor`
 to be newly created all the time the request is sent)
