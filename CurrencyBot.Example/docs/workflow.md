@@ -1,5 +1,5 @@
 # CurrencyBot.Example
-[![example bot](https://img.youtube.com/vi/0PJ8nxUHJhs/0.jpg)](https://www.youtube.com/watch?v=0PJ8nxUHJhs)
+[![YouTube](http://i.ytimg.com/vi/0PJ8nxUHJhs/hqdefault.jpg)](https://www.youtube.com/watch?v=0PJ8nxUHJhs)
 
 The project has a single controller which is responsible for receiving updates from telegram. The `post` action method
 is essential because telegram sends incoming updates as POST requests to the URL specified in `SetWebHookAsync()`:
