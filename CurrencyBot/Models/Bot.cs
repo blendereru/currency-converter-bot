@@ -5,14 +5,14 @@ namespace CurrencyBot.Models;
 public static class Bot
 {
     // non-lazy, non-asynchronous singleton
-    private static TelegramBotClient? client { get; set; }
+    private static TelegramBotClient? Client { get; set; }
     public static TelegramBotClient GetTelegramBot()
     {
-        if (client != null)
+        if (Client != null)
         {
-            return client;
+            return Client;
         }
-        client = new TelegramBotClient("your_currency_bot");
-        return client;
+        Client = new TelegramBotClient("your_currency_bot");
+        return Client;
     }
 }
