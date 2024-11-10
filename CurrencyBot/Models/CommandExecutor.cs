@@ -13,28 +13,19 @@ public class CommandExecutor
         _commands = new List<ICommand>()
         {
             new StartCommand(),
+            new HelpCommand(),
             new ConvertCurrencyCommand(httpClient, configuration)
         };
     }
 
     public async Task GetUpdate(Update update)
     {
+        Console.WriteLine("command executor is initted");
         var msg = update.Message;
         if (msg == null || string.IsNullOrEmpty(msg.Text))
         {
             return;
         }
-        if (_activeCommand != null)
-        {
-            await _activeCommand.ExecuteAsync(update);
-            if (!_activeCommand.IsActive)
-            {
-                _activeCommand = null;
-            }
-
-            return;
-        }
-
         if (msg.Text == "Convert Currency")
         {
             var convertCommand = _commands.OfType<ConvertCurrencyCommand>().FirstOrDefault();
@@ -42,6 +33,17 @@ public class CommandExecutor
             {
                 _activeCommand = convertCommand;
                 await _activeCommand.ExecuteAsync(update);
+                return; // Exit after handling "Convert Currency"
+            }
+        }
+        if (_activeCommand != null && _activeCommand.IsActive)
+        {
+            await _activeCommand.ExecuteAsync(update);
+
+            // If the command has completed, reset _activeCommand
+            if (!_activeCommand.IsActive)
+            {
+                _activeCommand = null;
             }
         }
         else
