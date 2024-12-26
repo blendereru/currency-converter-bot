@@ -21,7 +21,7 @@ builder.Services.AddHttpClient("tgwebhook").RemoveAllLoggers().AddTypedClient<IT
 builder.Services.AddHttpClient<ExchangeRateClient>("currencyApi", client =>
 {
     client.DefaultRequestHeaders.Add("Accept", "application/json");
-});
+}); 
 builder.Services.AddSingleton<UpdateHandler>();
 builder.Services.ConfigureTelegramBotMvc();
 builder.Services.AddControllers();
