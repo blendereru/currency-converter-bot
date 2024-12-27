@@ -1,4 +1,7 @@
-# currency-converter-bot [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+# currency-converter-bot
+[![CI/CD](https://img.shields.io/badge/CI/CD-passing-069910?style=flat&logo=github&link=https://github.com/blendereru/currency-converter-bot/blob/01b58fff65fde92168979a8254e848b439334c6b/.github/workflows)](https://github.com/blendereru/currency-converter-bot/blob/01b58fff65fde92168979a8254e848b439334c6b/.github/workflows)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 A telegram bot that allows converting from one currency to another. The project is a `ASP.NET Core` application, that
 provides webhook endpoint for the Telegram.Bot.
 # Bot Specification
@@ -7,6 +10,8 @@ The bot maintains conversation through the various commands:
 * `/help` command: lists the available commands in the bot
 * `/convert` command: the main command which requires user to send the request in format `"100 USD to EUR"` or
 `"50 GBP in JPY"`
+* `/listcurrencies` command: lists the currencies supported by API
+* `/searchcurrency` command: find the short name of the currency
 Instead of long polling we specify the `Webhook` communication type with `Telegram` service
 ```csharp
 await bot.SetWebhook(webhookUrl);
@@ -91,4 +96,4 @@ Then you paste your url to `appsettings.json`.
 # Links
 The project was built by looking up to [Telegram.Bot.Examples](https://github.com/TelegramBots/Telegram.Bot.Examples)
 # License
-The project is under [Apache License](LICENSE)
+The project is under [Apache License v2](LICENSE)

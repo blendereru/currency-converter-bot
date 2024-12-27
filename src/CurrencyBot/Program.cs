@@ -15,7 +15,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 builder.Configuration.AddAzureKeyVault(
     new Uri(builder.Configuration["AzureKeyVaultUri"]!),
-    new DefaultAzureCredential());
+    new DefaultAzureCredential()); // remove this conf if you are on Development mode
 var botConfigSection = builder.Configuration.GetSection("BotConfiguration");
 var apiConfigSection = builder.Configuration.GetSection("ApiConfiguration");
 builder.Services.Configure<ApiConfiguration>(apiConfigSection);
