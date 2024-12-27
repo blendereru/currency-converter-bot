@@ -35,24 +35,20 @@ jobs:
     needs: build
     environment:
       name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-
-      - name: Log in to Azure CLI
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+          
       - name: Deploy to Azure Web App with Custom Environment Variable
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'sanzhar-bot'
+          slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_382258D8F46D446DA537E4D95358EDD8 }}
-          enable-remote-build: false
         env:
           AzureKeyVaultUri: ${{ secrets.AZURE_KEYVAULT_URI }}
