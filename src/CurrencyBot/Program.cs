@@ -1,3 +1,4 @@
+using Azure.Identity;
 using CurrencyBot.Clients;
 using CurrencyBot.Configurations;
 using CurrencyBot.Services;
@@ -12,6 +13,9 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 builder.Host.UseSerilog();
+builder.Configuration.AddAzureKeyVault(
+    new Uri(builder.Configuration["AzureKeyVaultUri"]!),
+    new DefaultAzureCredential());
 var botConfigSection = builder.Configuration.GetSection("BotConfiguration");
 var apiConfigSection = builder.Configuration.GetSection("ApiConfiguration");
 builder.Services.Configure<ApiConfiguration>(apiConfigSection);
