@@ -1,5 +1,5 @@
 # currency-converter-bot
-[![CI/CD](https://img.shields.io/badge/CI/CD-passing-069910?style=flat&logo=github&link=https://github.com/blendereru/currency-converter-bot/blob/01b58fff65fde92168979a8254e848b439334c6b/.github/workflows)](https://github.com/blendereru/currency-converter-bot/blob/01b58fff65fde92168979a8254e848b439334c6b/.github/workflows)
+[![CI/CD](https://github.com/blendereru/currency-converter-bot/actions/workflows/CD.yml/badge.svg)](https://github.com/blendereru/currency-converter-bot/actions/workflows/CD.yml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 A telegram bot that allows converting from one currency to another. The project is a `ASP.NET Core` application, that
