@@ -1,28 +1,45 @@
 name: .NET
 
+permissions:
+  contents: write        # For checking out the repository
+  attestations: write    # Required to create attestation
+  actions: read          # Allows access to actions metadata (default)
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_call: 
-    
+  workflow_call:
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
+      # Step 1: Checkout repository code
       - uses: actions/checkout@v4
+
+      # Step 2: Set up .NET 8.0.x environment
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+
+      # Step 3: Restore project dependencies
       - name: Restore dependencies
         run: |
           cd src/CurrencyBot
           dotnet restore
+
+      # Step 4: Build the .NET solution
       - name: Build solution
         run: |
           cd src/CurrencyBot
           dotnet build --no-restore
+
+      # Step 5: Generate artifact attestation
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'src/CurrencyBot/bin/Debug/CurrencyBot.dll' # Path to the binary
